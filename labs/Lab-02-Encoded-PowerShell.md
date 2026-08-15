@@ -32,20 +32,23 @@ Sysmon Event ID: 1 (Process Creation)
 Key Attribute: CommandLine containing -enc flag followed by Base64 text.
 
 ## 4. Splunk SPL Detection Query
-# Splunk SPL
+
+> **Macro Configuration:** `sysmon_base` expands to `index=main source="XmlWinEventLog:Microsoft-Windows-Sysmon/Operational" | spath` to ingest raw XML telemetry and auto-extract fields.
+
+### Splunk SPL
 `sysmon_base
 | rex field=_raw "<Data Name="CommandLine">(?<CmdLine>[^<]+)</Data>"
 | search CmdLine="*-enc*" OR CmdLine="*-EncodedCommand*"
 | table _time CmdLine`
 
 # SPL Explanation:
-1. Macro Base: Filters down to raw Sysmon event logs using sysmon_base.
+1. Macro Ingestion: Calls sysmon_base to filter raw XML Sysmon telemetry.
 
-2. Field Extraction (rex): Extracts the raw command line string into the CmdLine field directly from the raw XML payload.
+2. Field Extraction (rex): Parses raw XML to populate the CmdLine field.
 
-3. Pattern Matching: Filters events specifically where CmdLine contains parameter variations like -enc or -EncodedCommand.
+3. Pattern Matching: Filters for obfuscation parameters (-enc, -EncodedCommand).
 
-## Output: Formats results into a table displaying the exact execution timestamp and command string.
+## Output: Generates a table of matched timestamps and command lines.
 
 ## 5. SOC Analyst Triage & Remediation Steps
 
