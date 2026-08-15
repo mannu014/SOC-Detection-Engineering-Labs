@@ -21,7 +21,7 @@ To simulate persistence after achieving initial access, an entry was added to th
 
 ## 3. Log Telemetry & Event Identification
 
--Log Source: WinEventLog:Microsoft-Windows-Sysmon/Operational
+-Log Source: XmlWinEventLog:Microsoft-Windows-Sysmon/Operational
 
 -Sysmon Event ID: 13 (RegistryEvent - Value Set)
 
