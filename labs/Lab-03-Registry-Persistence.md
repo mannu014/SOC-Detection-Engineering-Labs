@@ -47,7 +47,8 @@ To simulate persistence after achieving initial access, an entry was added to th
 
 ### Output: Displays event timestamps and Sysmon Event ID 13 records.
 
-5. SOC Analyst Triage & Remediation Steps
+## 5. SOC Analyst Triage & Remediation Steps
+
 Verify Target Path: Confirm whether the modified registry key is a known autostart location (e.g., ...\CurrentVersion\Run or ...\CurrentVersion\RunOnce).
 
 Inspect Executable Path: Verify if the target binary (notepad.exe in this lab) is located in a standard system directory or executing from an untrusted path (e.g., AppData\Local\Temp).
