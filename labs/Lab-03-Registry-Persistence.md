@@ -32,17 +32,20 @@ To simulate persistence after achieving initial access, an entry was added to th
 -Target Payload: notepad.exe
 
 ## 4. Splunk SPL Detection Query
+
+> **Macro Configuration:** `sysmon_base` expands to `index=main source="XmlWinEventLog:Microsoft-Windows-Sysmon/Operational" | spath` to ingest raw XML telemetry and auto-extract fields.
+
 ### Splunk SPL
 `sysmon_base
 | search Event.System.EventID=13
 | table _time Event.System.EventID`
 
 ### SPL Explanation:
-Macro Base: Loads raw Sysmon event logs using sysmon_base.
+1. Macro Ingestion & XML Parsing: sysmon_base targets XmlWinEventLog and parses XML nodes via spath.
 
-Event ID Filter: Filters strictly for Sysmon Event ID 13, which tracks registry value creation and modification events.
+2. Direct Field Search: Enables searching auto-parsed fields like Event.System.EventID=13 without manual rex regex parsing.
 
-Output: Formats matching events into a simple table displaying event timestamps and Event IDs.
+### Output: Displays event timestamps and Sysmon Event ID 13 records.
 
 5. SOC Analyst Triage & Remediation Steps
 Verify Target Path: Confirm whether the modified registry key is a known autostart location (e.g., ...\CurrentVersion\Run or ...\CurrentVersion\RunOnce).
