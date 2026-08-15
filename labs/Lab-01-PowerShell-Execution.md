@@ -14,7 +14,9 @@ To trigger benign process creation telemetry while capturing true execution para
 
 ```powershell``
 Get-Date
+
 Get-Process
+
 Get-Service
 
 Purpose: Adversaries frequently use initial discovery commands via PowerShell upon landing on an endpoint.
