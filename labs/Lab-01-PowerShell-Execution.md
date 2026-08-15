@@ -13,6 +13,7 @@
 To trigger benign process creation telemetry while capturing true execution parameters, the following safe commands were executed sequentially inside PowerShell on the target VM:
 
 ```powershell``
+
 Get-Date
 
 Get-Process
