@@ -33,10 +33,10 @@ Key Attribute: CommandLine containing -enc flag followed by Base64 text.
 
 ## 4. Splunk SPL Detection Query
 # Splunk SPL
-`sysmon_base`
+`sysmon_base
 | rex field=_raw "<Data Name="CommandLine">(?<CmdLine>[^<]+)</Data>"
 | search CmdLine="*-enc*" OR CmdLine="*-EncodedCommand*"
-| table _time CmdLine
+| table _time CmdLine`
 
 # SPL Explanation:
 1. Macro Base: Filters down to raw Sysmon event logs using sysmon_base.
