@@ -31,11 +31,11 @@ Purpose: Adversaries frequently use initial discovery commands via PowerShell up
 
 ## 4. Splunk SPL Detection & Regex Parsing Query
 Splunk SPL
-`sysmon_base` #(my resusable report)
+`sysmon_base 
 | rex field=_raw "<Data Name="Image">(?<ImagePath>[^<]+)</Data>"
 | rex field=_raw "<Data Name="CommandLine">(?<CmdLine>[^<]+)</Data>"
 | search ImagePath="*powershell.exe"
-| table _time ImagePath CmdLine
+| table _time ImagePath CmdLine`
 
 ## SPL Explanation:
 1. Macro Base: Filters down to raw Sysmon logs via sysmon_base.
