@@ -54,6 +54,7 @@ Key Attribute: CommandLine containing -enc flag followed by Base64 text.
 -Decode Payload: Input the string into CyberChef (using From Base64 -> Decode Text (UTF-16LE)) or decode in PowerShell:
 
 # PowerShell
-[System.Text.Encoding]::Unicode.GetString([System.Convert]::FromBase64String("RwBlAHQALQBEAGEAdABlAA=="))
+
+`[System.Text.Encoding]::Unicode.GetString([System.Convert]::FromBase64String("RwBlAHQALQBEAGEAdABlAA=="))`
 
 -Assess Threat Intent: Review the decoded script to check for secondary malicious activities (such as web downloads via Invoke-WebRequest or memory injection).
