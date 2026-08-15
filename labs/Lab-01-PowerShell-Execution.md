@@ -30,25 +30,24 @@ Purpose: Adversaries frequently use initial discovery commands via PowerShell up
 -Target Process: C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe
 
 ## 4. Splunk SPL Detection & Regex Parsing Query
-Splunk SPL
-`sysmon_base 
+
+> **Macro Configuration:** `sysmon_base` expands to `index=main source="XmlWinEventLog:Microsoft-Windows-Sysmon/Operational" | spath` to ingest raw XML telemetry and auto-extract fields.
+
+### Splunk SPL
+`sysmon_base
 | rex field=_raw "<Data Name="Image">(?<ImagePath>[^<]+)</Data>"
 | rex field=_raw "<Data Name="CommandLine">(?<CmdLine>[^<]+)</Data>"
 | search ImagePath="*powershell.exe"
 | table _time ImagePath CmdLine`
 
-## SPL Explanation:
-1. Macro Base: Filters down to raw Sysmon logs via sysmon_base.
+### SPL Explanation:
+1. Macro Ingestion: Invokes sysmon_base to target XmlWinEventLog telemetry and run spath.
 
-2. Regex Field Extractions (rex):
+2. Regex Field Extractions (rex): Extracts ImagePath and CmdLine directly from raw XML tags.
 
-3. Extracts the binary path (ImagePath) from XML data tags.
+3. Filtering: Limits output strictly to powershell.exe process executions.
 
-4. Extracts full command-line arguments (CmdLine) executed by the process.
-
-5. Filtering: Filters results specifically for instances involving powershell.exe.
-
-## Output: Displays a clean timestamped table of all PowerShell executions along with their command lines.
+### Output: Displays matching executions in a timestamped table.
 
 ## 5. SOC Analyst Takeaways
 -Field Extraction Mastery: Standard Windows event logs often ship as raw XML blocks. Using rex to perform inline regex parsing enables rapid custom field extraction without relying on pre-built data models.
