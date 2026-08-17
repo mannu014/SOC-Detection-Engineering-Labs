@@ -49,7 +49,7 @@ To simulate persistence after achieving initial access, an entry was added to th
 
 ## 5. SOC Analyst Triage & Remediation Steps
 
-1. erify Target Path: Confirm whether the modified registry key is a known autostart location (e.g., ...\CurrentVersion\Run or ...\CurrentVersion\RunOnce).
+1. verify Target Path: Confirm whether the modified registry key is a known autostart location (e.g., ...\CurrentVersion\Run or ...\CurrentVersion\RunOnce).
 
 2. Inspect Executable Path: Verify if the target binary (notepad.exe in this lab) is located in a standard system directory or executing from an untrusted path (e.g., AppData\Local\Temp).
 
