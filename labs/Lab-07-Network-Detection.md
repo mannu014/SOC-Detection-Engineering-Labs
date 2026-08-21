@@ -98,8 +98,11 @@ Connections across non-standard remote ports (e.g., 4444, 8080, 1337).
 
 ## 5. Multi-Event Telemetry Correlation Playbook
 
-When an anomalous Event ID 3 is identified, analysts must correlate across adjacent Sysmon telemetry:
+When an anomalous network connection (Sysmon Event ID 3) is detected, analysts must correlate events across the full attack life cycle to understand the complete execution chain:
 
-[Event ID 1: Process Creation] ➡️ [Event ID 3: Outbound Connection] ➡️ [Event ID 11: File Dropped]
-  (Who spawned the process?)      (Where did it connect?)            (What payload was written?)
+```text
+[Sysmon Event ID 1]  ──>  [Sysmon Event ID 3]  ──>  [Sysmon Event ID 11]
+ Process Creation          Network Connection          File Dropped/Staged
+ (Who spawned it?)         (Where did it go?)         (What was downloaded?)
+```
 
