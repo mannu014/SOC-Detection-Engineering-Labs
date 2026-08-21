@@ -74,7 +74,7 @@
 ## 4. Threat Indicators: Benign vs. High-Risk Indicators
 
 
-###              Sysmon Event ID 3 Triggered
+                  Sysmon Event ID 3 Triggered
                               │
             ┌─────────────────┴─────────────────┐
             │                                   │
