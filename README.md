@@ -20,5 +20,5 @@ Hands-on cybersecurity repository documenting lab setups, adversary technique em
 | **04** | Parent-Child Process Anomaly       | Execution          | T1059            | [View Write-Up](labs/Lab-04-Parent-Child-Process.md) |
 | **05** | Scheduled Task Persistence         | Persistence        | T1053.005        | [View Write-Up](labs/Lab-05-Scheduled-Task-Persistence.md) |
 | **06** | WMI Detection & Persistence        | Execution          | T1047            | [View Write-Up](labs/Lab-06-WMI-Execution.md)        |
-| **07** | Network Telemetry & C2 Detection   | Command & Control  | T1071.001        | *In Progress* |
+| **07** | Network Telemetry & C2 Detection   | Command & Control  | T1071.001        | [View Write-Up](labs/Lab-07-Network-Detection.md)    |
 | **08** | Full SOC Investigation Scenario    | Multi-Stage Threat | Tactic Chain     | *In Progress* |
