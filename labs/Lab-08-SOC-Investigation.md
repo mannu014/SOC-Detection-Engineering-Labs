@@ -1,7 +1,7 @@
 # 🔬 Detection Lab 8: Full-Chain SOC Investigation & Threat Triage
 
 ## 1. Executive Summary
-- **Objective:** Execute an end-to-end multi-event investigation correlating process creation (Sysmon Event ID 1) with outbound network activity (Sysmon Event ID 3), extract structured XML telemetry using Splunk SPL, and apply analyst reasoning to differentiate benign activity from high-risk C2 execution.
+- **Objective:** Execute an end-to-end multi-event investigation correlating process creation (Sysmon Event ID 1)https://github.com/mannu014/SOC-Detection-Engineering-Labs/edit/main/labs/Lab-08-SOC-Investigation.md with outbound network activity (Sysmon Event ID 3), extract structured XML telemetry using Splunk SPL, and apply analyst reasoning to differentiate benign activity from high-risk C2 execution.
 - **Environment:** Windows VM, Sysmon v14, Splunk Universal Forwarder, Splunk Enterprise.
 - **MITRE ATT&CK Mapping:** 
   - **Tactic:** Execution ([TA0002](https://attack.mitre.org/tactics/TA0002/)) — **Technique:** Command and Scripting Interpreter: PowerShell ([T1059.001](https://attack.mitre.org/techniques/T1059/001/))
