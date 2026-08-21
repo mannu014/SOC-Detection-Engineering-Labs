@@ -87,7 +87,7 @@
             │                                   │
             ▼                                   ▼
  [Benign / Document & Close]          [High-Risk / Escalate Investigation]
-
+```
 ### High-Risk Indicators Requiring Escalation:
 
 Non-browser binaries (powershell.exe, cmd.exe, rundll32.exe, mshta.exe, certutil.exe) opening outbound external network sockets.
