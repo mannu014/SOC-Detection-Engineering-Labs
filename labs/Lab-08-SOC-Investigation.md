@@ -25,6 +25,8 @@ To simulate a multi-stage attack chain, a child PowerShell process was spawned t
 
 **-UseBasicParsing | Out-Null:** Suppresses output rendering while completing the HTTP handshake.
 
+---
+
 ## 3. Splunk Ingestion & Telemetry Correlation
 ### Phase 1: Process Creation Search (Event ID 1)
 Verify that Sysmon captured the child process execution:
@@ -52,7 +54,10 @@ Extract XML attributes using regular expressions to correlate the process with n
 | table _time host Image User Protocol Initiated DestinationIp DestinationPort
 | sort - _time``
 
+---
+
 ## 4. Case Investigation & Triage Analysis
+### Telemetry Artifact Correlation Table:
 
 | Triage Artifact              | Observed Telemetry Data                    | Analyst Reasoning & Findings |
 | :--------------------------- | :----------------------------------------- | :--------------------------- |
@@ -62,6 +67,7 @@ Extract XML attributes using regular expressions to correlate the process with n
 | **Network Profile**           | `Protocol: TCP` / `DestinationPort: 443`  | Outbound web traffic utilizes standard encrypted web ports to a non-malicious host. |
 | **Investigation Verdict**     | **False Positive — Benign Lab Activity**  | **Document & Close:** Detection triggered expected alert logic, but telemetry shows zero malicious intent, encoding, or lateral movement. |
 
+---
 
 ### 5. Escalation Decision Matrix: Benign vs. Malicious Indicators
 ```
@@ -77,6 +83,8 @@ Extract XML attributes using regular expressions to correlate the process with n
                   ▼                                                                 ▼
       [Document & Close Ticket]                                       [Isolate Host & Initiate IR Playbook]
 ```
+---
+
 ## 6. Full Investigation Flowchart
 ```
                           ALERT TRIGGERED
