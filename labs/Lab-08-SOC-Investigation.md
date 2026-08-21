@@ -32,9 +32,9 @@ Verify that Sysmon captured the child process execution:
 | spath
 | search Event.System.EventID=1
 | search "powershell.exe"
-| table _time host
-Phase 2: Outbound Network Connection Search (Event ID 3)
-Extract XML attributes using regular expressions to correlate the process with network events:``
+| table _time host``
+### Phase 2: Outbound Network Connection Search (Event ID 3)
+Extract XML attributes using regular expressions to correlate the process with network events:
 
 ### Splunk SPL
 ``index=main source="XmlWinEventLog:Microsoft-Windows-Sysmon/Operational"
@@ -50,5 +50,56 @@ Extract XML attributes using regular expressions to correlate the process with n
 | table _time host Image User Protocol Initiated DestinationIp DestinationPort
 | sort - _time``
 
+## 4. Case Investigation & Triage Analysis
+
+| Triage Artifact              | Observed Telemetry Data                    | Analyst Reasoning & Findings |
+| :--------------------------- | :----------------------------------------- | :--------------------------- |
+| **Parent & Child Process**   | `powershell.exe` spawning `powershell.exe` | Parent shell executed a isolated child process utilizing `-NoProfile` arguments. |
+| **Executed Command Line**    | `Invoke-WebRequest https://example.com`    | Standard unencoded HTTP GET request targeting a known, reserved RFC testing domain. |
+| **Sysmon Event Correlation** | Event ID 1 (Process Create) ➡️ Event ID 3 (Network Connection) | Process creation directly generated an outbound socket connection across HTTPS (Port 443). |
+| **Network Profile**           | `Protocol: TCP` / `DestinationPort: 443`  | Outbound web traffic utilizes standard encrypted web ports to a non-malicious host. |
+| **Investigation Verdict**     | **False Positive — Benign Lab Activity**  | **Document & Close:** Detection triggered expected alert logic, but telemetry shows zero malicious intent, encoding, or lateral movement. |
 
 
+### 5. Escalation Decision Matrix: Benign vs. Malicious Indicators
+```
+                                 PowerShell Outbound Activity Detected
+                                                   │
+                  ┌────────────────────────────────┴────────────────────────────────┐
+                  │                                                                 │
+    [Benign Profile (This Lab)]                                    [Malicious Profile (Escalate)]
+   • Destination: example.com (Port 443)                           • Obfuscated / Base64 Encoded Commands (`-enc`)
+   • Standard interactive user context                             • Connection to dynamic C2 / untrusted IP (`185.x.x.x`)
+   • Unencoded web request commands                                • Non-standard ports (`4444`, `8080`, `1337`)
+                  │                                                                 │
+                  ▼                                                                 ▼
+      [Document & Close Ticket]                                       [Isolate Host & Initiate IR Playbook]
+```
+## 6. Full Investigation Flowchart
+```
+                          ALERT TRIGGERED
+                                │
+                                ▼
+                   PowerShell Process Creation
+                                │
+                                ▼
+                    Sysmon Event ID 1 Logged
+                   (CommandLine Identification)
+                                │
+                                ▼
+                  Sysmon Event ID 3 Logged
+               (Outbound Network Connection)
+                                │
+                                ▼
+                     Destination IP: 443
+                                │
+                                ▼
+                Context Correlation & Analysis
+                                │
+                                ▼
+                     BENIGN TEST ACTIVITY
+                                │
+                                ▼
+                    DOCUMENT & CLOSE TICKET
+
+```
