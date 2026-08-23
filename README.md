@@ -21,4 +21,4 @@ Hands-on cybersecurity repository documenting lab setups, adversary technique em
 | **05** | Scheduled Task Persistence         | Persistence        | T1053.005        | [View Write-Up](labs/Lab-05-Scheduled-Task-Persistence.md) |
 | **06** | WMI Detection & Persistence        | Execution          | T1047            | [View Write-Up](labs/Lab-06-WMI-Execution.md)        |
 | **07** | Network Telemetry & C2 Detection   | Command & Control  | T1071.001        | [View Write-Up](labs/Lab-07-Network-Detection.md)    |
-| **08** | Full SOC Investigation Scenario    | Multi-Stage Threat | Tactic Chain     | *In Progress* |
+| **08** | Full SOC Investigation Scenario    | Multi-Stage Threat | Tactic Chain     | [View Write-Up](labs/Lab-08-SOC-Investigation.md)|
