@@ -9,6 +9,64 @@ Hands-on cybersecurity repository documenting lab setups, adversary technique em
 - **Attack Platform:** PowerShell / Kali Linux
 
 ---
+## 🧠 Skills Demonstrated
+### 🔎 SOC & Detection Engineering
+Security event monitoring and alert investigation
+Log analysis and event correlation
+Detection rule development
+True Positive / False Positive classification
+SOC alert triage and investigation
+Basic threat hunting methodology
+Detection tuning and contextual analysis
+### 📊 Splunk & SIEM
+Splunk Enterprise
+Splunk Universal Forwarder
+SPL search development
+spath XML parsing
+rex regular-expression field extraction
+Custom field extraction from raw telemetry
+Event filtering and correlation
+Detection searches and investigation queries
+Dashboards, reports, and alerts
+### 🪟 Windows Security & Telemetry
+Windows process monitoring
+PowerShell activity analysis
+Parent-child process analysis
+Registry modification monitoring
+Scheduled task monitoring
+WMI process execution analysis
+Network connection telemetry analysis
+Sysmon Event ID analysis
+### 🛡️ Threat Detection
+PowerShell execution detection
+Encoded PowerShell detection
+Registry persistence detection
+Scheduled task persistence detection
+WMI execution detection
+Suspicious parent-child process detection
+Network activity analysis
+Basic C2 behavior analysis
+### 🧩 MITRE ATT&CK
+
+**Practical detection mapping and analysis of techniques including:**
+
+T1059.001 — PowerShell
+T1027 — Obfuscated/Compressed Files and Information
+T1547.001 — Registry Run Keys / Startup Folder
+T1053.005 — Scheduled Task/Job
+T1047 — Windows Management Instrumentation
+T1071.001 — Web Protocols
+### 🧪 Practical Security Lab Skills
+Windows security lab deployment
+Sysmon configuration and telemetry collection
+Splunk log ingestion
+Controlled adversary-technique emulation
+Detection validation
+Investigation and triage
+Incident documentation
+Evidence-based security analysis
+
+---
 
 ## 🔬 Detection Engineering Labs
 
