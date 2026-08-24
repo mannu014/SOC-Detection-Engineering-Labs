@@ -10,62 +10,75 @@ Hands-on cybersecurity repository documenting lab setups, adversary technique em
 
 ---
 ## 🧠 Skills Demonstrated
+
 ### 🔎 SOC & Detection Engineering
-Security event monitoring and alert investigation
-Log analysis and event correlation
-Detection rule development
-True Positive / False Positive classification
-SOC alert triage and investigation
-Basic threat hunting methodology
-Detection tuning and contextual analysis
+
+- **Security Event Monitoring & Investigation**
+- **Log Analysis & Event Correlation**
+- **Detection Rule Development**
+- **Alert Triage**
+- **True Positive / False Positive Classification**
+- **Basic Threat Hunting**
+- **Detection Tuning**
+- **Incident Documentation**
+
 ### 📊 Splunk & SIEM
-Splunk Enterprise
-Splunk Universal Forwarder
-SPL search development
-spath XML parsing
-rex regular-expression field extraction
-Custom field extraction from raw telemetry
-Event filtering and correlation
-Detection searches and investigation queries
-Dashboards, reports, and alerts
+
+- **Splunk Enterprise**
+- **Splunk Universal Forwarder**
+- **SPL Query Development**
+- **`spath` XML Parsing**
+- **`rex` Regular-Expression Field Extraction**
+- **Custom Field Extraction from Raw XML Telemetry**
+- **Event Filtering & Correlation**
+- **Detection Searches**
+- **Investigation Queries**
+- **Dashboards, Reports & Alerts**
+
 ### 🪟 Windows Security & Telemetry
-Windows process monitoring
-PowerShell activity analysis
-Parent-child process analysis
-Registry modification monitoring
-Scheduled task monitoring
-WMI process execution analysis
-Network connection telemetry analysis
-Sysmon Event ID analysis
+
+- **Windows Process Monitoring**
+- **PowerShell Activity Analysis**
+- **Parent-Child Process Analysis**
+- **Registry Modification Monitoring**
+- **Scheduled Task Monitoring**
+- **WMI Process Execution Analysis**
+- **Network Connection Telemetry Analysis**
+- **Sysmon Event ID Analysis**
+
 ### 🛡️ Threat Detection
-PowerShell execution detection
-Encoded PowerShell detection
-Registry persistence detection
-Scheduled task persistence detection
-WMI execution detection
-Suspicious parent-child process detection
-Network activity analysis
-Basic C2 behavior analysis
+
+- **PowerShell Execution Detection**
+- **Encoded PowerShell Detection**
+- **Registry Persistence Detection**
+- **Scheduled Task Persistence Detection**
+- **WMI Execution Detection**
+- **Suspicious Parent-Child Process Detection**
+- **Network Activity Analysis**
+- **Basic C2 Behavior Analysis**
+
 ### 🧩 MITRE ATT&CK
 
-**Practical detection mapping and analysis of techniques including:**
+Practical detection mapping and analysis of techniques including:
 
-T1059.001 — PowerShell
-T1027 — Obfuscated/Compressed Files and Information
-T1547.001 — Registry Run Keys / Startup Folder
-T1053.005 — Scheduled Task/Job
-T1047 — Windows Management Instrumentation
-T1071.001 — Web Protocols
+- **T1059.001** — PowerShell
+- **T1027** — Obfuscated/Compressed Files and Information
+- **T1547.001** — Registry Run Keys / Startup Folder
+- **T1053.005** — Scheduled Task/Job
+- **T1047** — Windows Management Instrumentation
+- **T1071.001** — Web Protocols
+
 ### 🧪 Practical Security Lab Skills
-Windows security lab deployment
-Sysmon configuration and telemetry collection
-Splunk log ingestion
-Controlled adversary-technique emulation
-Detection validation
-Investigation and triage
-Incident documentation
-Evidence-based security analysis
 
+- **Windows Security Lab Deployment**
+- **Sysmon Configuration**
+- **Security Telemetry Collection**
+- **Splunk Log Ingestion**
+- **Controlled Adversary-Technique Emulation**
+- **Detection Validation**
+- **Security Investigation & Triage**
+- **Evidence-Based Analysis**
+- **Incident Documentation**
 ---
 
 ## 🔬 Detection Engineering Labs
@@ -80,3 +93,14 @@ Evidence-based security analysis
 | **06** | WMI process creation/execution detection | Execution          | T1047            | [View Write-Up](labs/Lab-06-WMI-Execution.md)        |
 | **07** | Network Telemetry & C2 Detection         | Command & Control  | T1071.001        | [View Write-Up](labs/Lab-07-Network-Detection.md)    |
 | **08** | Full SOC Investigation Scenario          | Multi-Stage Threat | Tactic Chain     | [View Write-Up](labs/Lab-08-SOC-Investigation.md)|
+
+---
+## 🎯 Portfolio Focus
+
+This portfolio demonstrates a practical security workflow:
+
+**Telemetry Collection → XML Parsing → Detection Engineering → Alert Investigation → Threat Triage → MITRE ATT&CK Mapping → Incident Documentation**
+
+All activities are performed in controlled virtual lab environments for educational and defensive-security purposes.
+
+
